@@ -58,7 +58,7 @@ const extractTextFromHTML = (
 
 export default function BlogCard({ blog }: BlogCardProps) {
   return (
-    <article className="w-[300px] h-[420px] bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col">
+    <article className="w-[300px] h-[420px] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col">
       <Link href={`/blog/${blog.slug}`} className="block">
         <div className="aspect-[4/3] relative bg-gray-100 overflow-hidden flex-shrink-0">
           <Image

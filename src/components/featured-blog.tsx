@@ -59,11 +59,11 @@ const extractTextFromHTML = (
 export default function FeaturedBlog({ blog }: FeaturedBlogProps) {
   return (
     <Link href={`/blog/${blog.slug}`} className="block">
-      <article className="p-8 md:p-12 transition rounded-xl">
+      <article className="transition rounded-xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Image Section */}
           <div className="order-2 lg:order-1">
-            <div className="aspect-[4/3] relative bg-gray-100 rounded-xl overflow-hidden shadow-lg group">
+            <div className="aspect-[4/2] relative bg-gray-100 rounded-xl overflow-hidden shadow-lg group">
               <Image
                 src={
                   blog.featuredImage ||

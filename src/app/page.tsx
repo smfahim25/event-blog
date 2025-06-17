@@ -40,7 +40,7 @@ export default async function HomePage({
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Featured Blog Section */}
         {featuredBlog && !category && page === 1 && (
-          <div className="bg-white rounded-2xl shadow-sm mb-16 overflow-hidden">
+          <div className="rounded-2xl mb-16 overflow-hidden">
             <FeaturedBlog blog={featuredBlog} />
           </div>
         )}
