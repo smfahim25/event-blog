@@ -1,15 +1,39 @@
+"use client";
+import { getSettings } from "@/lib/api";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+type Settings = {
+  navbarColor?: string;
+};
 
 export default function Navbar() {
+  const [settings, setSettings] = useState<Settings | null>(null);
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const data = await getSettings();
+        setSettings(data);
+      } catch (error) {
+        console.error("Error loading settings:", error);
+      }
+    };
+
+    fetchSettings();
+  }, []);
   return (
-    <nav className="shadow-lg border-b sticky top-0 z-50 backdrop-blur-sm bg-white/95">
-      <div className="max-w-7xl mx-auto px-4">
+    <nav
+      className="shadow-lg sticky top-0 z-50 backdrop-blur-sm "
+      style={{ backgroundColor: settings?.navbarColor || "#1e8489" }}
+    >
+      <div className="mx-auto px-10">
         <div className="flex items-center justify-between h-16">
           {/* Company Logo/Name */}
           <div className="flex items-center">
             <Link
               href="https://lessortiesdediane.com/"
-              className="flex items-center gap-2 text-xl font-bold text-gray-900  transition-colors duration-200 group"
+              className="flex items-center gap-2 text-xl md:text-2xl xl:text-[28px] transition-colors duration-200 group"
             >
               <span>Les Sorties de Diane</span>
             </Link>

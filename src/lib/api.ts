@@ -68,7 +68,7 @@ export async function getBlogCategories() {
       headers: {
         "Content-Type": "application/json",
       },
-      next: { revalidate: 3600 }, // Revalidate every hour
+      next: { revalidate: 3600 },
     });
 
     if (!response.ok) {
@@ -80,5 +80,26 @@ export async function getBlogCategories() {
   } catch (error) {
     console.error("Error fetching categories:", error);
     return [];
+  }
+}
+
+export async function getSettings(): Promise<any> {
+  try {
+    const response = await fetch(`${API_URL}/settings`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: { revalidate: 300 },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch settings: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.data || {};
+  } catch (error) {
+    console.error("Error fetching settings:", error);
+    return null;
   }
 }
