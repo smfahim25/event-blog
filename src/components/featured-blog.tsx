@@ -58,11 +58,11 @@ const extractTextFromHTML = (
 
 export default function FeaturedBlog({ blog }: FeaturedBlogProps) {
   return (
-    <article className="p-8 md:p-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        {/* Image Section */}
-        <div className="order-2 lg:order-1">
-          <Link href={`/blog/${blog.slug}`}>
+    <Link href={`/blog/${blog.slug}`} className="block">
+      <article className="p-8 md:p-12 transition rounded-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Image Section */}
+          <div className="order-2 lg:order-1">
             <div className="aspect-[4/3] relative bg-gray-100 rounded-xl overflow-hidden shadow-lg group">
               <Image
                 src={
@@ -75,33 +75,31 @@ export default function FeaturedBlog({ blog }: FeaturedBlogProps) {
                 priority
               />
             </div>
-          </Link>
-        </div>
+          </div>
 
-        {/* Content Section */}
-        <div className="order-1 lg:order-2 space-y-6">
-          <Link href={`/blog/${blog.slug}`}>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+          {/* Content Section */}
+          <div className="order-1 lg:order-2 space-y-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-200">
               {blog.title}
             </h2>
-          </Link>
 
-          <p className="text-gray-600 text-lg leading-relaxed">
-            {extractTextFromHTML(blog.content) || blog.description}
-          </p>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              {extractTextFromHTML(blog.content) || blog.description}
+            </p>
 
-          <div className="flex items-center gap-4 text-sm text-gray-500">
-            <time dateTime={blog.createdAt} className="font-medium">
-              {formatDate(blog.createdAt)}
-            </time>
-            {blog.category && (
-              <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
-                {blog.category.name}
-              </span>
-            )}
+            <div className="flex items-center gap-4 text-sm text-gray-500">
+              <time dateTime={blog.createdAt} className="font-medium">
+                {formatDate(blog.createdAt)}
+              </time>
+              {blog.category && (
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
+                  {blog.category.name}
+                </span>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </Link>
   );
 }
