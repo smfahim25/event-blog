@@ -4,6 +4,7 @@ import CategoryFilter from "@/components/category-filter";
 import FeaturedBlog from "@/components/featured-blog";
 import { getBlogCategories, getBlogs } from "@/lib/api";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 interface SearchParams {
   page?: string;
@@ -66,6 +67,7 @@ export default async function HomePage({
           />
         </Suspense>
       </main>
+      <Footer />
     </div>
   );
 }

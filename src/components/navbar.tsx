@@ -43,7 +43,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+              className="text-gray-700 text-lg hover:text-blue-600 font-medium transition-colors duration-200"
             >
               Blog
             </Link>

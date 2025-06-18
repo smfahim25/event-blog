@@ -6,6 +6,7 @@ import { getBlogBySlug } from "@/lib/api";
 import { formatDate } from "@/lib/utils";
 import { Clock3, ArrowLeft, Calendar, Tag, BookOpen } from "lucide-react";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -503,6 +504,7 @@ export default async function BlogPost({ params }: Props) {
 
         {/* Bottom spacing */}
         <div className="h-16"></div>
+        <Footer />
       </div>
     );
   } catch {
