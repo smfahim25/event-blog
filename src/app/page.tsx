@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import BlogGrid from "@/components/blog-grid";
 import CategoryFilter from "@/components/category-filter";
-import FeaturedBlog from "@/components/featured-blog";
+// import FeaturedBlog from "@/components/featured-blog";
 import { getBlogCategories, getBlogs } from "@/lib/api";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -26,7 +26,7 @@ export default async function HomePage({
   ]);
 
   const featuredBlog = blogsData.blogs[0];
-  const otherBlogs = blogsData.blogs.slice(1);
+  const otherBlogs = blogsData.blogs;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -40,11 +40,11 @@ export default async function HomePage({
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Featured Blog Section */}
-        {featuredBlog && !category && page === 1 && (
+        {/* {featuredBlog && !category && page === 1 && (
           <div className="rounded-2xl mb-16 overflow-hidden">
             <FeaturedBlog blog={featuredBlog} />
           </div>
-        )}
+        )} */}
 
         {/* Blog Grid Section */}
         <Suspense
