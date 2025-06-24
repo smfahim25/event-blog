@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <nav
       className="shadow-lg sticky top-0 z-50 backdrop-blur-sm "
-      style={{ backgroundColor: settings?.navbarColor || "#1e8489" }}
+      style={{ backgroundColor: settings?.navbarColor || "#e88e2f" }}
     >
       <div className="mx-auto px-10">
         <div className="flex items-center justify-between h-16">

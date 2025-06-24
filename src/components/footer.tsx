@@ -33,13 +33,13 @@ const Footer: React.FC = () => {
   return (
     <footer
       className=" text-white py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: settings?.navbarColor || "#1e8489" }}
+      style={{ backgroundColor: settings?.navbarColor || "#e88e2f" }}
     >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
           <div className="w-full lg:w-auto lg:flex-shrink-0">
             <h1
-              className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-black qwigley-regular leading-tight ${qwigley.variable}`}
+              className={`text-xl sm:text-2xl lg:text-4xl font-bold text-black leading-tight ${qwigley.variable}`}
             >
               Les sorties de Diane
             </h1>
